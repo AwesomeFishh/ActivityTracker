@@ -25,6 +25,7 @@ public class ZilantTop implements CommandExecutor {
 			//Get top20 long values (time played) and sort from high to low
 			if(sender instanceof Player) {
 				Player player = (Player) sender;
+				plugin.updateTimePlayed();
 				if(args.length == 0) {
 					int counter = 0;
 					HashMap<Player, Long> players = new HashMap<Player, Long>();
