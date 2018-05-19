@@ -24,6 +24,7 @@ public class ZilantActive implements CommandExecutor {
 				Player player = (Player) sender;
 				if (args.length == 1) {
 					String input = args[0];
+					@SuppressWarnings("deprecation")
 					UUID uuid = Bukkit.getPlayer(input).getUniqueId();
 					Long timeplayed = plugin.getConfig().getLong("players." + uuid.toString());
 					String string = plugin.getDurationBreakdown(timeplayed);

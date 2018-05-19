@@ -53,10 +53,11 @@ public class Main extends JavaPlugin {
 			Long timeplayed = System.currentTimeMillis() - playersMap.get(p.getUniqueId());
 			getConfig().set("players." + p.getUniqueId().toString(), (getConfig().getLong("players." + p.getUniqueId().toString()) + timeplayed));
 			playersMap.put(p.getUniqueId(), System.currentTimeMillis());
+			saveConfig();
 		}
 	}
 
-	public static String getDurationBreakdown(long millis) {
+	public String getDurationBreakdown(long millis) {
 		if (millis < 0) {
 			throw new IllegalArgumentException("Duration must be greater than zero!");
 		}
