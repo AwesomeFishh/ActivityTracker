@@ -20,6 +20,7 @@ public class Events implements Listener {
 		UUID uuid = p.getUniqueId();
 		if (!p.hasPlayedBefore()) {
 			plugin.getConfig().set("players." + uuid.toString(), 0);
+			plugin.getConfig().set("numberofplayers", plugin.getConfig().getInt("numberofplayers") + 1);
 		}
 
 		plugin.playersMap.put(uuid, System.currentTimeMillis());
