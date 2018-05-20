@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.AwesomeFishh.ActivityTracker.Commands.ZilantActive;
+import me.AwesomeFishh.ActivityTracker.Commands.ZilantHelp;
 import me.AwesomeFishh.ActivityTracker.Commands.ZilantTop;
 import me.AwesomeFishh.ActivityTracker.Events.Events;
 
@@ -25,7 +26,12 @@ public class Main extends JavaPlugin {
 		getServer().getPluginManager().registerEvents(new Events(), this);
 		getCommand("zilantactive").setExecutor(new ZilantActive());
 		getCommand("zilanttop").setExecutor(new ZilantTop());
+		getCommand("zilanthelp").setExecutor(new ZilantHelp());
 		getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[ActivityTracker] Plugin enabled!");
+		
+		for(Player p : Bukkit.getOnlinePlayers()) {
+			playersMap.put(p.getUniqueId(), System.currentTimeMillis());
+		}
 	}
 
 	@Override
