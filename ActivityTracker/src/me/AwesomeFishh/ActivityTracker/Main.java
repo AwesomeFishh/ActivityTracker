@@ -31,21 +31,13 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onDisable() {
 		getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[ActivityTracker] Plugin disabled!");
+		updateTimePlayed();
 		saveConfig();
 	}
 
 	public void loadConfig() {
 		getConfig().options().copyDefaults(true);
 		saveConfig();
-	}
-
-	public Player getKeyFromValue(HashMap<Player, Long> players, Object value) {
-		for (Player o : players.keySet()) {
-			if (players.get(o).equals(value)) {
-				return o;
-			}
-		}
-		return null;
 	}
 
 	public void updateTimePlayed() {
